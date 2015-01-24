@@ -3,13 +3,13 @@
 
 /* PROTOTIPI DELLE FUNZIONI */
 /* La dichiarazione e la definizione di una funzione possono essere separate.
- * 
+ *
  * Il prototipo della funzione costituisce l'informazione necessaria al suo
  * utilizzo: nome, numero e tipo dei parametri di ingresso, tipo del (unico)
  * parametro di uscita.
- * 
+ *
  * La definizione della funzione è ottenuta mediante la definizione del suo
- * corpo. La parte definitoria si trova dopo la funzione main. 
+ * corpo. La parte definitoria si trova dopo la funzione main.
  */
 float somma(float a, float b);
 float sottrazione(float a, float b);
@@ -24,18 +24,18 @@ int main(int argc, char** argv) {
     int scelta;
     float risultato, f;
     int q;
-    
+
     puts("Benvenuto nel SuperCaolcolatore, il piu' innovativo software di calcolo presente sul mercato.\n");
     printf("Inserisci a, il primo operando (frazionale): ");
     scanf("%f", &a);
     printf("Inserisci b, il secondo operando (frazionale): ");
     scanf("%f", &b);
-    
+
     getchar();
     /* La presenza di questa chiamata alla funzione getchar() è dovuto al funzionamento
      * "buffered line" definito dallo standard POSIX.
      */
-    
+
     puts("\nOperazioni:");
     puts("1 -  Somma a+b");
     puts("2 -  Sottrazione a-b");
@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
     puts("6 -  Elevamento a potenza a^b (l'esponente è troncato ad intero)");
     scelta = getchar();
     scelta = scelta - '0';
-    
+
     switch(scelta) {
         case 1:
             risultato = somma(a, b);
@@ -73,42 +73,57 @@ int main(int argc, char** argv) {
             printf("%f^%d=%f\n", a, (int)b, risultato);
             break;
         default:
-            puts("Nuove oprazioni saranno disponibili a breve!\n");        
+            puts("Nuove oprazioni saranno disponibili a breve!\n");
     }
-    return (EXIT_SUCCESS);
+//    return (EXIT_SUCCESS);
+      system ("pause");
+      return 0;
 }
 
 float somma(float a, float b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    float risultato;
+    risultato = a + b;
+    return risultato;
 }
 
 float sottrazione(float a, float b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    float risultato;
+    risultato = a - b;
+    return risultato;
 }
 
 float prodotto(float a, float b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    float risultato;
+    risultato = a * b;
+    return risultato;
 }
 
 float divisione(float a, float b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    float risultato;
+    risultato = a / b;
+    return risultato;
 }
 
 int quoziente(int a, int b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    int quoziente;
+    quoziente = a / b;
+    return quoziente;
 }
 
 float frazionale(int a, int b) {
-    // TODO Definire il corpo della funzione
-    return 0;
+    int parteintera;
+    float risultato, frazionale;
+    parteintera = quoziente ( a, b);
+    risultato = divisione( a, b);
+    frazionale = risultato - parteintera;
+    return frazionale;
 }
 
 float potenza(float base, int esponente) {
-    // TODO Definire il corpo della funzione
-    return 0;
+      int potenza = 1;
+      while(esponente > 0){
+                      potenza = potenza *base;
+                      esponente--;
+                         }
+      return potenza;
 }
